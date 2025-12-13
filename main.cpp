@@ -1,14 +1,15 @@
 #include <iostream>
+#include <vector>
 
-namespace first {
-    int x = 1;
-}
+// typedef std::string text_t;
+// Better way:
+using text_t = std::string;
+
 
 int main(){
-    using namespace first;
+    text_t firstName = "Bro";
 
-    std::cout << x << "\n";
-    std::cout << x << "\n";
+    std::cout << firstName;
 
     return 0;
 }
