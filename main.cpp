@@ -1,18 +1,21 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 
 int main()
 {
-    std::string name;
-    std::string description;
+    double x = 3;
+    double y = 4;
+    double z;
 
-    std::cout << "What's your name?: ";
-    std::cin >> name;
+    // z = std::max(x, y);
+    // z = std::min(x, y);
+    // z = pow(x, y);
+    // z = sqrt(y);
+    z = abs(y);
 
-    std::cout << "sup " << name << ". present yourself";
-    // without " >> std::ws" it finishes program because prev >> left " \n" in the buffer so we clear it with whitespace;
-    std::getline(std::cin >> std::ws, description);
+    std::cout << z;
 
     return 0;
 }
