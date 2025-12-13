@@ -1,15 +1,14 @@
 #include <iostream>
 #include <vector>
 
-// typedef std::string text_t;
-// Better way:
-using text_t = std::string;
 
+int main()
+{
+    int correct = 8;
+    int questions = 10;
+    double score = correct/(double)questions * 100;
 
-int main(){
-    text_t firstName = "Bro";
-
-    std::cout << firstName;
+    std::cout << score << "%";
 
     return 0;
 }
