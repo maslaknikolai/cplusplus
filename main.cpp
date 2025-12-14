@@ -5,19 +5,43 @@
 
 int main()
 {
-    double a;
-    double b;
-    double c;
+    char op;
+    double num1;
+    double num2;
+    double result;
 
-    std::cout << "Enter side A: ";
-    std::cin >> a;
+    std::cout << "********** CALCULATOR **********\n";
 
-    std::cout << "Enter side B: ";
-    std::cin >> b;
+    std::cout << "Enter either (+ - * /): \n";
+    std::cin >> op;
 
-    c = sqrt(pow(a, 2) + pow(b, 2));
+    std::cout << "Enter #1: \n";
+    std::cin >> num1;
 
-    std::cout << "side C: " << c;
+    std::cout << "Enter #2: \n";
+    std::cin >> num2;
+
+    switch (op) {
+        case '+':
+            result = num1 + num2;
+            std::cout << "result: " << result << "\n";
+            break;
+        case '-':
+            result = num1 - num2;
+            std::cout << "result: " << result << "\n";
+            break;
+        case '*':
+            result = num1 * num2;
+            std::cout << "result: " << result << "\n";
+            break;
+        case '/':
+            result = num1 / num2;
+            std::cout << "result: " << result << "\n";
+            break;
+        default:
+            std::cout << "Not correct operation";
+            break;
+    }
 
     return 0;
 }
