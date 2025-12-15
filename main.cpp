@@ -2,16 +2,15 @@
 #include <vector>
 #include <cmath>
 
+void foo(std::string name, int age);
 
 int main() {
-    int n = 0;
-
-    do {
-        std::cout << "Enter positive number: ";
-        std::cin >> n;
-    } while (n < 0);
-
-    std::cout << "The # is: " << n;
+    std::string v = "n";
+    foo(v, (int)12);
 
     return 0;
+}
+
+void foo(std::string aname, int age) {
+    std::cout << aname << age;
 }
