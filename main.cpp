@@ -1,22 +1,94 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
-void foo(std::string name, int age);
-void foo(std::string name);
+void showBalance(double balanceCents);
+double deposit();
+double withdraw(double amount);
 
 int main() {
-    std::string v = "n";
-    foo(v);
-    foo(v, (int)12);
+
+    double balance = 0;
+    int choice;
+
+    do {
+        std::cout << "********************\n";
+        std::cout << "Enter your choise number:\n";
+        std::cout << "********************\n";
+        std::cout << "1. Show balance:\n";
+        std::cout << "2. Deposit Money:\n";
+        std::cout << "3. Withdraw Money:\n";
+        std::cout << "4. Exit:\n";
+
+
+        std::cin >> choice;
+        std::cin.clear();
+        fflush(stdin);
+
+        switch (choice) {
+            case 1:
+                showBalance(balance);
+                break;
+            case 2:
+                balance += deposit();
+                showBalance(balance);
+                break;
+            case 3:
+                balance -= withdraw(balance);
+                showBalance(balance);
+                break;
+            case 4:
+                break;
+            default:
+                std::cout << "Invalid choice\n";
+                break;
+        }
+    } while (choice != 4);
 
     return 0;
 }
 
-void foo(std::string aname) {
-    std::cout << aname;
+
+void showBalance(double balance) {
+    std::cout << "Your balance is: $" << std::setprecision(2) << std::fixed << balance;
 }
 
-void foo(std::string aname, int age) {
-    std::cout << aname << age;
+double deposit() {
+
+    double amount = 0;
+
+    std::cout << "Enter amount to be deposited: \n";
+
+    std::cin >> amount;
+    std::cin.clear();
+    fflush(stdin);
+
+    if (amount <= 0) {
+        std::cout << "no";
+        return 0;
+    }
+
+    return amount;
+}
+
+double withdraw(double balance) {
+    double amount = 0;
+
+    std::cout << "How much: \n";
+
+    std::cin >> amount;
+    std::cin.clear();
+    fflush(stdin);
+
+    if (amount < 0) {
+        std::cout << "Enter correct number: \n";
+        return 0;
+    }
+
+    if (amount > balance) {
+
+    }
+
+    return 0;
 }
