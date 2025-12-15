@@ -3,15 +3,15 @@
 #include <cmath>
 
 
-int main()
-{
-    std::string name;
+int main() {
+    int n = 0;
 
-    while (name.empty()) {
-        std::cout << "Enter your name: ";
-        std::getline(std::cin, name);
-    }
+    do {
+        std::cout << "Enter positive number: ";
+        std::cin >> n;
+    } while (n < 0);
 
+    std::cout << "The # is: " << n;
 
     return 0;
 }
