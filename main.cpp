@@ -2,6 +2,8 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
+#include <optional>
+#include <charconv>
 
 void showBalance(double balanceCents);
 double deposit();
@@ -20,7 +22,6 @@ int main() {
         std::cout << "2. Deposit Money:\n";
         std::cout << "3. Withdraw Money:\n";
         std::cout << "4. Exit:\n";
-
 
         std::cin >> choice;
         std::cin.clear();
@@ -87,8 +88,28 @@ double withdraw(double balance) {
     }
 
     if (amount > balance) {
-
+        std::cout << "Insufficient funds! You only have $" << std::setprecision(2) << std::fixed << balance << "\n";
+        return 0;
     }
 
-    return 0;
+    return amount;
+}
+
+std::optional<int> inputInt() {
+    std::string input;
+    if (!std::getline(std::cin, input))
+        return std::nullopt;
+
+    int value{};
+    auto [ptr, ec] = std::from_chars(
+        input.data(),
+        input.data() + input.size(),
+        value
+    );
+
+    if (ec != std::errc{} || ptr != input.data() + input.size()) {
+        return std::nullopt;
+    }
+
+    return value;
 }
