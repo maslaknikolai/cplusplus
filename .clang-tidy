@@ -29,7 +29,8 @@ Checks: >
   -hicpp-no-array-decay,
   -cppcoreguidelines-pro-type-vararg,
   -hicpp-vararg,
-  -misc-include-cleaner
+  -misc-include-cleaner,
+  -misc-const-correctness
 
 # Treat warnings as errors for stricter enforcement
 WarningsAsErrors: ""
@@ -39,22 +40,7 @@ HeaderFilterRegex: ".*"
 
 # Configure specific checks
 CheckOptions:
-  - key: readability-identifier-naming.ClassCase
-    value: CamelCase
-  - key: readability-identifier-naming.FunctionCase
-    value: CamelCase
-  - key: readability-identifier-naming.VariableCase
-    value: lower_case
-  - key: readability-identifier-naming.ParameterCase
-    value: lower_case
-  - key: readability-identifier-naming.MemberCase
-    value: lower_case
-  - key: readability-identifier-naming.ConstantCase
-    value: UPPER_CASE
-  - key: readability-identifier-naming.EnumCase
-    value: CamelCase
-  - key: readability-identifier-naming.MacroCase
-    value: UPPER_CASE
+  # All naming convention rules removed - use your own style
   - key: readability-function-size.LineThreshold
     value: 80
   - key: readability-function-size.StatementThreshold
